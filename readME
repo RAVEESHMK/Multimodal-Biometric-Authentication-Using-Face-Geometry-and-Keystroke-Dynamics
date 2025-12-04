@@ -1,0 +1,80 @@
+Multimodal Biometric Authentication
+
+This project implements a multimodal biometric authentication system using face landmarks and keystroke dynamics. The goal is to compare unimodal and fused systems and evaluate how different keystroke feature representations affect performance.
+
+This code was developed for the CAP6101 Multimodal Biometrics Project.
+
+1. Requirements
+
+Install the needed libraries:
+
+pip install numpy pandas matplotlib scikit-learn
+
+
+Tested with Python 3.11 on a standard CPU.
+
+2. Project Files
+data_loading.py         # Dataset loading + user alignment
+features.py             # Statistical & PCA keystroke features
+matching_and_fusion.py  # Template/query splits, scoring, fusion
+main.py                 # Evaluator (EER, d', ROC, DET, score plots)
+project_experiments.py  # Runs RQ1 & RQ2 experiments
+
+
+Place these data files in the same folder:
+
+face_features.npy
+face_labels.npy
+keystroke_features.csv
+
+3. How to Run the Project
+
+Open a terminal in the project folder and run:
+
+python project_experiments.py
+
+
+This will automatically:
+
+Load face + keystroke data
+
+Run RQ1 (unimodal vs fusion)
+
+Run RQ2 (stats vs PCA features)
+
+Generate all ROC, DET, and score distribution plots
+
+Print performance summaries (d′ and EER)
+
+All plots are saved as .png files in the same directory.
+
+4. Expected Output
+
+After running the script, you will see:
+
+Printed summaries for each system (face-only, keystroke-only, fused, etc.)
+
+Plots automatically saved:
+
+roc_curve_system_*.png
+
+det_curve_system_*.png
+
+score_distribution_system_*.png
+
+These can be inserted directly into your project report and presentation.
+
+5. Troubleshooting
+
+Missing library errors:
+Install required packages with
+
+pip install numpy pandas matplotlib scikit-learn
+
+
+File not found:
+Ensure the .npy face files and keystroke .csv file are in the same directory as the code.
+
+6. Summary
+
+This project provides a complete, reproducible pipeline for multimodal biometric authentication using face geometry and keystroke timing signals. The code is fully modular and ready for experimentation or extension.
